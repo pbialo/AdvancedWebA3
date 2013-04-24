@@ -16,33 +16,23 @@ function get_contacts($db){
 }
 
 function check_login($username, $password, $db){
-	$query = "SELECT * 
-		FROM users 
-		WHERE username = '$username'";
-	$login = $db->prepare($query);
-	$login->execute(array($username));
-	$user = $login->fetch(PDO::FETCH_ASSOC);
-	if ($user['password']== $password){
-		return true;
+	$query = "SELECT username, password	FROM users";
+	$login = $db->query($query);
+	$users = $login->fetchAll(PDO::FETCH_ASSOC);
+	foreach($users as $user){ 
+		if (($user['password'] == $password) && ($user['username'] == $username)) {
+			return true;
+		}
 	}
-	else{
-		return false;
-	}
-
 }
 
 function mobile_check_login($username, $password, $db){
-	$query = "SELECT * 
-		FROM users 
-		WHERE username = '$username'";
-	$login = $db->prepare($query);
-	$login->execute(array($username));
-	$user = $login->fetch();
-	if ($user['password']== $password){
-		return true;
+	$query = "SELECT username, password	FROM users";
+	$login = $db->query($query);
+	$users = $login->fetchAll(PDO::FETCH_ASSOC);
+	foreach($users as $user){ 
+		if (($user['password'] == $password) && ($user['username'] == $username)) {
+			return true;
+		}
 	}
-	else{
-		return false;
-	}
-
 }

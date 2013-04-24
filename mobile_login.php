@@ -13,8 +13,8 @@ if (check_login($_POST['username'], $_POST['password'], $db) == true){
 	$_SESSION['id'] = 1;
 	$_SESSION['login_fail'] = 0;
 	header('Location: mobile_get_contacts.php');
-	}
-	else {
-		$_SESSION['login_fail'] = 1;
-		header('Location: mobile_get_contacts.php');
-	}	
+}
+else {
+	$_SESSION['login_fail'] = 1;
+	header('Location: mobile_get_contacts.php');
+}	
