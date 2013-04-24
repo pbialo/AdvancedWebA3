@@ -1,6 +1,6 @@
 <?php
 /*
-	File name: get_contacts.php
+	File name: mobile_get_contacts.php
     Author's name: Paul Bialo
     Web site name: Paul Bialo's Personal Portfolio
     File description: Displays contacts if user logs in correctly.

@@ -49,13 +49,15 @@
                 // Otherwise the log-in fields are shown 
                 else{
                     ?> 
-                    <form action = "login.php" method = "POST">
-                        <label for="username">Username: </label><input type="text" name="username">
-                        <label for="password">Password: </label><input type="password" name="password">
-                            <input type="submit" value="Login">
+                    <form action="login.php" method="POST" enctype="multipart/form-data" id="login_form">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" id="username" />
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" />
+                        <input data-inline="true"  type="submit" value="Login" />
                     </form>
                     <?php 
-                        // Small error message if log-in credentials are incorrect
+                        // Error message if log-in credentials were incorrect
                         if (isset($_SESSION['login_fail'])){
                             if (($_SESSION['login_fail'] == 1)){
                                 $_SESSION['login_fail'] = 0;

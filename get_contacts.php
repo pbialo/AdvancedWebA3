@@ -9,12 +9,9 @@
 if (!isset($_SESSION['id'])){
 	header('Location:admin.php');
 }
-function get_contacts($db){
-	$stmt = $db->query("SELECT name, phone_number, address FROM contacts ORDER BY name ASC");
-	$contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	return $contacts;
-}
 
+
+require "functions/functions.php";
 require "functions/db_pdo.php";
 $contacts = get_contacts($db);
 ?>
@@ -25,9 +22,9 @@ $contacts = get_contacts($db);
 			<?php
 			// Shows each contact's name as a link. When clicked, an alert box with saved information is displayed
 			foreach($contacts as $contact){ ?>
-				 <a href="" onClick="alert('Name:                     <?php echo htmlentities($contact['name']) .
+				 <a href="" onClick="alert('Name:                     <?php echo htmlentities($contact['first_name']) . ' ' . htmlentities($contact['last_name'])  .
 				 						'\nPhone Number:     '. htmlentities($contact['phone_number']). 
-				 						'\nAddress:                  '. htmlentities( $contact['address']); ?> ')"><?php echo htmlentities($contact['name']); ?></a>
+				 						'\nAddress:                  '. htmlentities( $contact['address']); ?> ')"><?php echo htmlentities($contact['first_name']) . ' ' . htmlentities($contact['last_name']) . '<br>' ; ?></a>
 			<?php }	?>
 		</ul>
 		<button type="button" value="logout" onClick = "javascript:location.href = 'logout.php';" >Logout</button>

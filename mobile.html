@@ -367,7 +367,7 @@
                 </h3>
             </div>
         </div>
-        <!-- Business Contacts !-->
+        <!-- Business Contacts Log-in !-->
         <div data-role="page" id="page6">
             <div data-theme="a" data-role="header">
                 <img src="img/logomobile.gif" alt="PB logo">
@@ -423,7 +423,7 @@
                             <input type="submit" value="Login">
                     </form>
                     <?php 
-                        // Small error message if log-in credentials are incorrect
+                        // Error message if log-in credentials are incorrect
                         if (isset($_SESSION['login_fail'])){
                             if (($_SESSION['login_fail'] == 1)){
                                 $_SESSION['login_fail'] = 0;
@@ -434,6 +434,63 @@
                     ?>
                 </div>
             <?php } ?>
+        </div>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    Copyright © 2013 Paul Bialo
+                </h3>
+            </div>
+        </div>
+        <!-- Business Contacts - Logged in !-->
+        <div data-role="page" id="page7">
+            <div data-theme="a" data-role="header">
+                <img src="img/logomobile.gif" alt="PB logo">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-transition="fade" data-theme="" data-icon="home">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-transition="fade" data-theme="" data-icon="info">
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-transition="fade" data-theme="" data-icon="grid">
+                                Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-transition="fade" data-theme="" data-icon="gear">
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-transition="fade" data-theme="" data-icon="search">
+                                Contact
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-transition="fade" data-theme="" data-icon="info" class="ui-btn-active ui-state-persist">
+                                Business Contacts
+                            </a>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h1>Business Contacts</h1>           
+                <?php
+                // If the user logs in, he is able to view the contact list
+                session_start();
+                if (isset($_SESSION['id'])){
+                    require ('get_contacts.php');
+                }
+                // Otherwise the log-in fields are shown 
+ ?>
         </div>
             </div>
             <div data-theme="a" data-role="footer" data-position="fixed">

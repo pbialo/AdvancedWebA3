@@ -8,8 +8,13 @@
 
 session_start();
 require "functions/functions.php";
-
-if (isset($_POST['username']) && isset($_POST['password'])){
-	require "functions/db_pdo.php";
-	check_login($_POST['username'], ($_POST['password']), $db);
-}
+require "functions/db_pdo.php";
+if (check_login($_POST['username'], $_POST['password'], $db) == true){
+	$_SESSION['id'] = 1;
+	$_SESSION['login_fail'] = 0;
+	header('Location: get_contacts.php');
+	}
+	else {
+		$_SESSION['login_fail'] = 1;
+		header('Location: get_contacts.php');
+	}	
