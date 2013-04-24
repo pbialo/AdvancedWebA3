@@ -3,8 +3,9 @@
 	File name: admin.php
     Author's name: Paul Bialo
     Web site name: Paul Bialo's Personal Portfolio
-    File description: HTML home page
+    File description: Log-in to view business contacts
 -->
+
 <html class="no-js">
     <head>
         <meta charset="utf-8">
@@ -19,14 +20,13 @@
        <!-- #main  <script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script> -->
         <script src="js/slides.min.jquery.js"></script>
     </head>
-
     <body>
         <div class="header-container">
             <header class="wrapper clearfix">
                 <img src="img/logo.gif" alt="PB logo">              
                 <nav>
                     <ul>
-                        <li><a href="admin.php" class="active">Admin</a></li>
+                        <li><a href="admin.php" class="active">Business Contacts</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="http://www.github.com/pbialo">GitHub</a></li>
                         <li><a href="services.html">Services</a></li>
@@ -39,21 +39,33 @@
         </div>
         <div class="main-container">
             <div class="main wrapper clearfix">
-                <h1>Admin Log-in</h1>           
-            </div>
-
-        <?php 
-        require "functions/pdo.php";
-        require "functions/functions.php";
-        $contacts = get_contacts($db);
-        foreach($contacts as $contact){
-            echo "<tr>";
-                echo "<td>" . $contact['name'] . "</td>";
-                echo "<td>" . $contact['phone_number']. "</td>";
-                echo "<td>" . $contact['address']. "</td>";
-            echo "</tr>";
-        }
-        ?>
+                <h1>Business Contacts</h1>           
+                <?php
+                // If the user logs in, he is able to view the contact list
+                session_start();
+                if (isset($_SESSION['id'])){
+                    require ('get_contacts.php');
+                }
+                // Otherwise the log-in fields are shown 
+                else{
+                    ?> 
+                    <form action = "login.php" method = "POST">
+                        <label for="username">Username: </label><input type="text" name="username">
+                        <label for="password">Password: </label><input type="password" name="password">
+                            <input type="submit" value="Login">
+                    </form>
+                    <?php 
+                        // Small error message if log-in credentials are incorrect
+                        if (isset($_SESSION['login_fail'])){
+                            if (($_SESSION['login_fail'] == 1)){
+                                $_SESSION['login_fail'] = 0;
+                                ?>
+                                <p> Login failed. Try again. </p>
+                            <?php }
+                        }
+                    ?>
+                </div>
+            <?php } ?>
         </div>
         <div class="footer-container">
             <footer class="wrapper">
