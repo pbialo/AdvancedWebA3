@@ -1,0 +1,325 @@
+/*
+  File name: main.css
+  Author's name: Paul Bialo
+  Web site name: Paul Bialo's Personal Portfolio
+  File description: CSS file for all pages
+*/
+
+body {
+    line-height: 1.4;
+    background-color: #efefef;
+    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+
+/* ==========================================================================
+	Some pre-sets that came with HTML5 Boilerplate
+   ========================================================================== */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+	Various wrappers used in the web site are defined below 
+   ========================================================================== */
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+.header-container {
+    border-bottom: 20px solid #2f2f2f;
+}
+
+.footer-container{
+	padding: 20px 0;
+	border-top: 20px solid #2f2f2f;
+	color: white; 
+}
+
+.main {
+    padding: 30px 0;
+}
+
+.main article h1 {
+    font-size: 32px;
+}
+
+.main aside {
+    border: 10px solid #2f2f2f;
+    border-radius: 15px;
+}
+
+.header-container,
+.footer-container,
+.main aside {
+    background: #ccb647;
+}
+
+.title {
+    color: #364652;
+}
+
+
+/* ==========================================================================
+   Nav bar stylings defined below; based off of what came with the HTML5 
+   Boilerplate template
+   ========================================================================== */
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    display: block;
+
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+
+    color: white;
+    background: #2f2f2f;
+
+    float: right;
+    width: 12%;
+    margin: 0;
+    padding: 50px 10px 50px 0px;
+    margin-bottom: 0px;
+}
+
+nav a:hover,
+nav a:visited {
+    color: white;
+}
+
+nav a:hover {
+    text-decoration: none;
+    text-shadow: 1px 1px #999;
+}
+
+nav li:first-child a {
+    margin-left: 0;
+}
+
+nav li:last-child a {
+    margin-right: 0;
+}
+
+.active{
+	background: #000000;
+}
+
+nav ul li {
+    display: inline;
+}
+
+
+/* ==========================================================================
+   Media Queries - I left a few of these in as per the template
+   ========================================================================== */
+
+@media only screen and (min-width: 768px) {
+
+/* ====================
+    WIDE: CSS3 Effects
+   ==================== */
+
+    .header-container,
+    .main aside {
+        -webkit-box-shadow: 0 5px 10px #aaa;
+           -moz-box-shadow: 0 5px 10px #aaa;
+                box-shadow: 0 5px 10px #aaa;
+    }
+
+/* ============
+    WIDE: Menu
+   ============ */
+
+    .title {
+        float: left;
+    }
+
+    nav {
+        float: right;
+        width: 65%;
+    }
+
+/* ============
+    WIDE: Main
+   ============ */
+
+    .main article {
+        float: left;
+        width: 67%;
+    }
+
+    .main aside {
+        float: right;
+        width: 25%;
+    }
+}
+
+@media only screen and (min-width: 1140px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   Styling specific to the index.html page
+   ========================================================================== */
+
+.connected {
+	text-align: center;
+	margin: 10px;
+}
+
+/* ==========================================================================
+   Styling specific to the about.html page
+   ========================================================================== */
+
+.me {
+	text-align: center;
+	margin: 25px;
+}
+
+/* ==========================================================================
+   Styling specific to the projects.html page
+   ========================================================================== */
+
+#projects img {
+ 	display: block;
+    margin: auto;
+}
+
+/* ==========================================================================
+   Styling specific to the services.html page
+   ========================================================================== */
+
+/* ==========================================================================
+   Styling specific to the contact.html page
+   ========================================================================== */
+
+.connected2 {
+    margin: 20px;
+}
+
+/* ==========================================================================
+   Helper classes that came with the template
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.tagline-image{
+	display: block;
+	padding: 5% 3% 5% 3%;
+	float: left;
+	text-align: center;
+}
